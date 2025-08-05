@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & IT Training - The Parrots Foundation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="picture.jpg" alt="The Parrots Foundation Logo" class="logo">
+                <span class="tagline">The Bridge Between You & Your Success</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="business.html">Business Support</a></li>
+                    <li><a href="ai-it.html">AI & IT Training</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donate.html" class="nav-donate-btn">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="service-hero">
+            <div class="container">
+                <h1>AI & IT Training</h1>
+                <p>Unlock your potential with our expert-led training in artificial intelligence and essential IT skills.</p>
+            </div>
+        </section>
+
+        <section id="service-details">
+            <div class="container">
+                <div class="details-text">
+                    <h2>Our Training Programs</h2>
+                    <p>We provide comprehensive and hands-on training designed to equip you with the skills needed to thrive in the digital world. Our courses are taught by industry experts and are tailored for all skill levels.</p>
+                    <ul>
+                        <li><i class="fas fa-brain"></i> **Introduction to AI**: Learn the basics of AI, machine learning, and how to use tools like ChatGPT effectively.</li>
+                        <li><i class="fas fa-laptop-code"></i> **Fundamental IT Skills**: Master essential computer skills, software applications, and basic troubleshooting.</li>
+                        <li><i class="fas fa-shield-alt"></i> **Cybersecurity for Beginners**: Understand the importance of digital security and learn how to protect yourself online.</li>
+                        <li><i class="fas fa-hands-helping"></i> **Career Guidance**: Receive personalized mentorship to help you find your path in the tech industry.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="application-form">
+            <div class="container">
+                <h2 class="section-title">Apply for Training</h2>
+                <form id="training-application-form" action="https://formspree.io/f/mqkrvkpv" method="POST">
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="Full_Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id-number">ID Number</label>
+                        <input type="text" id="id-number" name="ID_Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="Date_of_Birth" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="Gender" required>
+                            <option value="">-- Select an option --</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="Email_Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="Phone_Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="region">Region</label>
+                        <input type="text" id="region" name="Region" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inkhundla">Inkhundla</label>
+                        <input type="text" id="inkhundla" name="Inkhundla" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="umphakatsi">Umphakatsi (Chiefdom)</label>
+                        <input type="text" id="umphakatsi" name="Umphakatsi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="town-city">Town/City</label>
+                        <input type="text" id="town-city" name="Town_City" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Course of Interest</label>
+                        <select id="course" name="Course_of_Interest" required>
+                            <option value="">-- Select a course --</option>
+                            <option value="intro-to-ai">Introduction to AI</option>
+                            <option value="it-fundamentals">Fundamental IT Skills</option>
+                            <option value="cybersecurity">Cybersecurity for Beginners</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Why are you interested in this training?</label>
+                        <textarea id="message" name="Reason_for_Interest" rows="6" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="next-of-kin-name">Next of Kin Full Name</label>
+                        <input type="text" id="next-of-kin-name" name="Next_of_Kin_Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="next-of-kin-relationship">Relationship to Applicant</label>
+                        <input type="text" id="next-of-kin-relationship" name="Next_of_Kin_Relationship" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="next-of-kin-phone">Next of Kin Phone Number</label>
+                        <input type="tel" id="next-of-kin-phone" name="Next_of_Kin_Phone_Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="next-of-kin-id">Next of Kin ID Number</label>
+                        <input type="text" id="next-of-kin-id" name="Next_of_Kin_ID_Number" required>
+                    </div>
+
+                    <button type="submit">Submit Application</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 The Parrots Foundation. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

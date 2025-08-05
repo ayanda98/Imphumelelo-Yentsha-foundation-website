@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Support - The Parrots Foundation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="picture.jpg" alt="The Parrots Foundation Logo" class="logo">
+                <span class="tagline">The Bridge Between You & Your Success</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="business.html">Business Support</a></li>
+                    <li><a href="ai-it.html">AI & IT Training</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="donate.html" class="nav-donate-btn">Donate</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="service-hero">
+            <div class="container">
+                <h1>Business Support & Startup Capital</h1>
+                <p>We provide the resources and mentorship you need to turn your business idea into a reality.</p>
+            </div>
+        </section>
+
+        <section id="service-details">
+            <div class="container">
+                <div class="details-text">
+                    <h2>Our Comprehensive Support Package</h2>
+                    <p>We offer more than just capital. Our holistic program is designed to guide you through every stage of your business journey, ensuring long-term success and sustainability.</p>
+                    <ul>
+                        <li><i class="fas fa-money-bill-wave"></i> **Startup Capital**: Financial support to get your new or existing business off the ground.</li>
+                        <li><i class="fas fa-users"></i> **Mentorship**: One-on-one guidance from experienced business leaders.</li>
+                        <li><i class="fas fa-chalkboard-teacher"></i> **Business Training**: Workshops on planning, marketing, and financial management.</li>
+                        <li><i class="fas fa-chart-line"></i> **Monthly Reports & Visits**: We track your progress and provide continuous support to help you achieve your goals.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="application-form">
+            <div class="container">
+                <h2 class="section-title">Apply for Business Support</h2>
+                <form id="business-loan-form" action="https://formspree.io/f/xgvznyvv" 
+                    method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="business-type">Application Type</label>
+                        <select id="business-type" name="Application_Type" required>
+                            <option value="">-- Select an option --</option>
+                            <option value="new">New Business</option>
+                            <option value="existing">Existing Business</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" id="full-name" name="Full_Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="id-number">ID Number</label>
+                        <input type="text" id="id-number" name="ID_Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="Date_of_Birth" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="Gender" required>
+                            <option value="">-- Select an option --</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="Email_Address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="Phone_Number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="region">Region</label>
+                        <input type="text" id="region" name="Region" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inkhundla">Inkhundla</label>
+                        <input type="text" id="inkhundla" name="Inkhundla" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="umphakatsi">Umphakatsi (Chiefdom)</label>
+                        <input type="text" id="umphakatsi" name="Umphakatsi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="town-city">Town/City</label>
+                        <input type="text" id="town-city" name="Town_City" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="business-name">Business Name</label>
+                        <input type="text" id="business-name" name="Business_Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loan-amount">Requested Loan Amount (in SZL)</label>
+                        <input type="number" id="loan-amount" name="Loan_Amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="business-plan">Business Plan Summary</label>
+                        <textarea id="business-plan" name="Business_Plan_Summary" rows="6" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business-plan-upload">Upload your Business Plan</label>
+                        <input type="file" id="business-plan-upload" name="Business_Plan_File" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="next-of-kin-name">Next of Kin Full Name</label>
+                        <input type="text" id="next-of-kin-name" name="Next_of_Kin_Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="next-of-kin-relationship">Relationship to Applicant</label>
+                        <input type="text" id="next-of-kin-relationship" name="Next_of_Kin_Relationship" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="next-of-kin-phone">Next of Kin Phone Number</label>
+                        <input type="tel" id="next-of-kin-phone" name="Next_of_Kin_Phone_Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="next-of-kin-id">Next of Kin ID Number</label>
+                        <input type="text" id="next-of-kin-id" name="Next_of_Kin_ID_Number" required>
+                    </div>
+
+                    <button type="submit">Submit Application</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 The Parrots Foundation. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

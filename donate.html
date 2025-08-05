@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - The Parrots Foundation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <img src="picture.jpg" alt="The Parrots Foundation Logo" class="logo">
+                <span class="tagline">The Bridge Between You & Your Success</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="business.html">Business Support</a></li>
+                    <li><a href="ai-it.html">AI & IT Training</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="service-hero">
+            <div class="container">
+                <h1>Support Our Mission</h1>
+                <p>Your contribution helps us empower entrepreneurs and innovators across Eswatini.</p>
+            </div>
+        </section>
+
+        <section id="donation-form">
+            <div class="container">
+                <div class="donation-grid">
+                    <div class="donation-options">
+                        <h2 class="section-title">Your Donation Makes a Difference</h2>
+                        <form id="donation-form-details">
+
+                            <div class="form-group">
+                                <label>Where would you like to direct your donation?</label>
+                                <div class="radio-group">
+                                    <input type="radio" id="dept-business" name="donation-department" value="Business Development" checked>
+                                    <label for="dept-business">Business Development Department</label>
+                                    
+                                    <input type="radio" id="dept-ai" name="donation-department" value="AI & ICT Training">
+                                    <label for="dept-ai">AI & ICT Training Department</label>
+                                    
+                                    <input type="radio" id="dept-salary" name="donation-department" value="Team Salary">
+                                    <label for="dept-salary">Team & Volunteer Salaries</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="currency">Select your preferred currency</label>
+                                <select id="currency" name="currency">
+                                    <option value="SZL">Eswatini Lilangeni (SZL)</option>
+                                    <option value="USD">US Dollar (USD)</option>
+                                    <option value="ZAR">South African Rand (ZAR)</option>
+                                    <option value="GBP">British Pound (GBP)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="amount">Enter your donation amount</label>
+                                <input type="number" id="amount" name="donation-amount" placeholder="e.g., 500" required>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="payment-methods">
+                        <h2 class="section-title">Choose a Payment Method</h2>
+                        <p>We accept a variety of payment methods to make donating easy and secure.</p>
+
+                        <div class="payment-buttons">
+                            <a href="#" class="payment-btn mobile-money">
+                                <i class="fas fa-mobile-alt"></i> Mobile Money (Eswatini)
+                            </a>
+                            <a href="#" class="payment-btn paypal">
+                                <i class="fab fa-paypal"></i> PayPal
+                            </a>
+                            <a href="#" class="payment-btn visa">
+                                <i class="fab fa-cc-visa"></i> Visa
+                            </a>
+                            <a href="#" class="payment-btn mastercard">
+                                <i class="fab fa-cc-mastercard"></i> Mastercard
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 The Parrots Foundation. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
