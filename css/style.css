@@ -606,11 +606,6 @@ button[type="submit"]:hover {
     transform: translateY(-5px);
 }
 
-.payment-btn i {
-    font-size: 1.5rem;
-    margin-right: 15px;
-}
-
 .mobile-money {
     background-color: #2196F3; /* Bright blue for Mobile Money */
 }
@@ -787,4 +782,85 @@ button[type="submit"]:hover {
     .team-group h3 {
         font-size: 1.5rem;
     }
+}
+/* Blog Page Specific Styling */
+
+/* Hero section for the blog page */
+#blog-hero {
+    background: url('https://via.placeholder.com/1920x500.png?text=Blog+Hero+Image') no-repeat center center/cover;
+    color: #1c967c;
+    padding: 80px 0;
+    text-align: center;
+}
+
+#blog-hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+/* Container for the list of blog posts */
+#blog-list {
+    padding: 50px 0;
+}
+
+/* Grid layout for blog posts */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Individual blog post card */
+.blog-post {
+    background-color: #1c967c;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 20px;
+}
+
+.post-content h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.post-content p {
+    color: #555;
+    font-size: 0.9em;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ======================== */
+/* Blog Page Text Readability Fix */
+/* ======================== */
+.blog-post h3,
+.blog-post p,
+.blog-post a,
+.blog-post li {
+    color: #333333; /* Use a dark color for better contrast */
 }
