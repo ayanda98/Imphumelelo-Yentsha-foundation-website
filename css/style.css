@@ -1,6 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
 /* Header */
 header {
-    background: white;
+    background: rgb(11, 2, 2);
     padding: 1rem 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
@@ -33,73 +49,12 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 20px; /* Adds space between the navigation links */
+    gap: 20px;
     align-items: center;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #0A4A45;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover {
-    color: #546E7A;
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
-}
-
-header {
-    background: white;
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    height: 50px;
-    margin-right: 1rem;
-}
-
-.tagline {
-    font-size: 1rem;
-    font-style: italic;
-    color: #555;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 0; /* Cleans up redundant margin-left for flex layout */
 }
 
 nav ul li a {
@@ -113,12 +68,14 @@ nav ul li a:hover {
     color: #546E7A;
 }
 
+/* Footer */
 footer {
     background: #333;
     color: white;
     text-align: center;
     padding: 1rem 0;
 }
+
 /* Hero Section */
 #hero {
     background: #0A4A45;
@@ -138,6 +95,14 @@ footer {
     margin: 0 auto 30px;
 }
 
+.hero-buttons {
+    margin-top: 30px;
+}
+
+.hero-buttons .btn {
+    margin: 0 10px;
+}
+
 .btn {
     background: white;
     color: #0A4A45;
@@ -152,6 +117,7 @@ footer {
     background: #546E7A;
     color: white;
 }
+
 /* Our Focus Section */
 #focus {
     padding: 80px 20px;
@@ -229,7 +195,8 @@ footer {
         flex-direction: column;
     }
 }
-/* Service Hero Section */
+
+/* Service Hero Section (Used on Contact/Donate) */
 #service-hero {
     background: #0A4A45;
     color: white;
@@ -282,6 +249,7 @@ footer {
     color: #546E7A;
     font-size: 1.5rem;
     margin-right: 15px;
+    width: 30px;
 }
 
 /* Application Form Section */
@@ -334,6 +302,7 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background: #546E7A;
 }
+
 /* About Us Styling */
 #our-story {
     padding: 80px 20px;
@@ -355,6 +324,14 @@ button[type="submit"]:hover {
 #team {
     padding: 80px 20px;
     background-color: white;
+}
+
+.team-group h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #0A4A45;
 }
 
 .team-grid {
@@ -396,6 +373,7 @@ button[type="submit"]:hover {
     color: #546E7A;
     font-style: italic;
 }
+
 /* Contact Page Styling */
 #contact-content {
     padding: 80px 20px;
@@ -472,6 +450,7 @@ button[type="submit"]:hover {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
+
 /* Call to Action Section */
 #cta {
     background-color: #0A4A45;
@@ -522,14 +501,7 @@ button[type="submit"]:hover {
         margin-bottom: 20px;
     }
 }
-/* Hero buttons styling */
-.hero-buttons {
-    margin-top: 30px;
-}
 
-.hero-buttons .btn {
-    margin: 0 10px;
-}
 /* Donation Page Styles */
 #donation-form {
     padding: 80px 20px;
@@ -637,6 +609,7 @@ button[type="submit"]:hover {
 .mastercard:hover {
     background-color: #c90017;
 }
+
 /* Top Nav Donate Button */
 .nav-donate-btn {
     background-color: #ffc107; /* A bright, eye-catching yellow */
@@ -652,14 +625,13 @@ button[type="submit"]:hover {
     background-color: #e0a800; /* A darker yellow on hover */
     color: white !important;
 }
+
 /* ======================== */
 /* Responsive Design */
 /* ======================== */
-
-/* --- Mobile-specific styles (for screens up to 768px wide) --- */
 @media (max-width: 768px) {
     .container {
-        padding: 0 20px; /* Add some padding to the sides on mobile */
+        padding: 0 20px; 
     }
 
     /* Adjust the header layout for mobile */
@@ -673,6 +645,7 @@ button[type="submit"]:hover {
         flex-direction: column;
         align-items: center;
         margin-top: 10px;
+        gap: 0;
     }
 
     .nav-container nav li {
@@ -680,13 +653,15 @@ button[type="submit"]:hover {
     }
 
     .logo-container .tagline {
-        display: none; /* Hide the tagline on small screens */
+        display: none; 
     }
 
     /* Adjust cards and grids to be one column on mobile */
     .focus-cards,
     .team-grid,
-    .contact-grid {
+    .contact-grid,
+    .donation-grid {
+        grid-template-columns: 1fr;
         flex-direction: column;
     }
 
@@ -694,11 +669,12 @@ button[type="submit"]:hover {
     .team-member,
     .contact-info,
     .contact-form {
-        margin-bottom: 30px; /* Add space between items */
+        margin-bottom: 30px; 
     }
 
     .hero-buttons a {
         display: block;
+        width: 100%;
         margin: 10px 0;
         text-align: center;
     }
@@ -708,6 +684,7 @@ button[type="submit"]:hover {
         margin-bottom: 10px;
     }
 }
+
 /* ======================== */
 /* FAQ Section Styles */
 /* ======================== */
@@ -738,7 +715,7 @@ button[type="submit"]:hover {
     font-weight: 600;
     color: #0A4A45;
     cursor: pointer;
-    list-style: none; /* Hide default arrow */
+    list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -767,28 +744,16 @@ button[type="submit"]:hover {
     color: #555;
     padding-left: 10px;
 }
-/* ======================== */
-/* Team Section Improvements */
-/* ======================== */
-.team-group h3 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    color: #0A4A45;
-}
 
-@media (max-width: 768px) {
-    .team-group h3 {
-        font-size: 1.5rem;
-    }
-}
-/* Blog Page Specific Styling */
+/* ======================== */
+/* Blog Page Specific Styling (FIXED FOR READABILITY) */
+/* ======================== */
 
 /* Hero section for the blog page */
 #blog-hero {
-    background: url('https://via.placeholder.com/1920x500.png?text=Blog+Hero+Image') no-repeat center center/cover;
-    color: #1c967c;
+    /* **NOTE:** Replace 'img/blog-hero.jpg' with the actual path to your image */
+    background: url('../img/blog-hero.jpg') no-repeat center center/cover; 
+    color: rgb(11, 115, 126); /* Changed for better contrast against background image */
     padding: 80px 0;
     text-align: center;
 }
@@ -810,9 +775,9 @@ button[type="submit"]:hover {
     gap: 30px;
 }
 
-/* Individual blog post card */
+/* Individual blog post card (Background fixed for readability) */
 .blog-post {
-    background-color: #1c967c;
+    background-color: white; /* Changed from #1c967c to white for readability */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -836,6 +801,7 @@ button[type="submit"]:hover {
 .post-content h3 {
     margin-top: 0;
     font-size: 1.5em;
+    color: #0A4A45; /* Ensures heading is readable */
 }
 
 .post-content p {
@@ -846,7 +812,7 @@ button[type="submit"]:hover {
 .read-more {
     display: inline-block;
     margin-top: 10px;
-    color: #007bff;
+    color: #546E7A; /* Using a theme color */
     text-decoration: none;
     font-weight: bold;
 }
@@ -855,12 +821,42 @@ button[type="submit"]:hover {
     text-decoration: underline;
 }
 
-/* ======================== */
-/* Blog Page Text Readability Fix */
-/* ======================== */
-.blog-post h3,
-.blog-post p,
-.blog-post a,
-.blog-post li {
-    color: #333333; /* Use a dark color for better contrast */
+/* Removed redundant blog text readability fix section */
+
+/* Style for the new Partner Section in the Footer */
+
+.partners-section {
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #333; /* A separator line for clarity */
+    margin-top: 20px;
+}
+
+.partners-section h4 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    color: #fff; /* Assuming your footer text is light-colored */
+}
+
+.partners-logo-container {
+    display: flex; /* Arranges the logos horizontally */
+    justify-content: center; /* Centers the logos on the screen */
+    align-items: center;
+    gap: 30px; /* Space between the logos */
+    flex-wrap: wrap; /* Allows logos to wrap on smaller screens */
+}
+
+.partner-logo {
+    /* Set a maximum height to control the size of all logos */
+    max-height: 50px; 
+    /* Set a maximum width to prevent oversized images */
+    max-width: 150px; 
+    width: auto;
+    height: auto;
+    opacity: 0.7; /* Makes logos look subtle, common practice for footers */
+    transition: opacity 0.3s;
+}
+
+.partner-logo:hover {
+    opacity: 1.0; /* Full opacity on hover for effect */
 }
