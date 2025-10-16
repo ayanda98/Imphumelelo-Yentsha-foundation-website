@@ -40,8 +40,8 @@ header {
 .tagline {
     font-size: 1rem;
     font-style: italic;
-    color: #555;
-    white-space: nowrap; /* Prevents the tagline from wrapping to the next line */
+    color: #ede508;
+    white-space: nowrap;
 }
 
 nav ul {
@@ -54,7 +54,7 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 0; /* Cleans up redundant margin-left for flex layout */
+    margin-left: 0;
 }
 
 nav ul li a {
@@ -66,6 +66,22 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #546E7A;
+}
+
+/* Top Nav Donate Button */
+.nav-donate-btn {
+    background-color: #ffc107;
+    color: #0A4A45 !important;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-donate-btn:hover {
+    background-color: #e0a800;
+    color: white !important;
 }
 
 /* Footer */
@@ -190,13 +206,7 @@ footer {
     background: #0A4A45;
 }
 
-@media (max-width: 768px) {
-    .focus-cards {
-        flex-direction: column;
-    }
-}
-
-/* Service Hero Section (Used on Contact/Donate) */
+/* Service Hero Section (Used on Contact/Donate/AI/Business/About) */
 #service-hero {
     background: #0A4A45;
     color: white;
@@ -258,6 +268,7 @@ footer {
     background: #f9f9f9;
 }
 
+#training-application-form, /* Added from AI page */
 #business-loan-form {
     max-width: 700px;
     margin: 0 auto;
@@ -297,6 +308,11 @@ button[type="submit"] {
     font-size: 1rem;
     font-weight: bold;
     transition: background 0.3s;
+    /* Center button on mobile */
+    display: block; 
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0;
 }
 
 button[type="submit"]:hover {
@@ -319,6 +335,23 @@ button[type="submit"]:hover {
     color: #0A4A45;
     font-size: 2.2rem;
     margin-bottom: 20px;
+}
+
+.mv-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.mv-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 250px;
+    text-align: left; /* Keep text readable */
 }
 
 #team {
@@ -386,12 +419,6 @@ button[type="submit"]:hover {
     gap: 50px;
     max-width: 1000px;
     margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 .contact-info {
@@ -494,14 +521,6 @@ button[type="submit"]:hover {
     background: #4A5B64;
 }
 
-@media (max-width: 600px) {
-    .btn-cta {
-        display: block;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
 /* Donation Page Styles */
 #donation-form {
     padding: 80px 20px;
@@ -514,12 +533,6 @@ button[type="submit"]:hover {
     gap: 50px;
     max-width: 1000px;
     margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-    .donation-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 .donation-options, .payment-methods {
@@ -579,7 +592,7 @@ button[type="submit"]:hover {
 }
 
 .mobile-money {
-    background-color: #2196F3; /* Bright blue for Mobile Money */
+    background-color: #2196F3;
 }
 
 .mobile-money:hover {
@@ -587,7 +600,7 @@ button[type="submit"]:hover {
 }
 
 .paypal {
-    background-color: #00457C; /* PayPal blue */
+    background-color: #00457C;
 }
 
 .paypal:hover {
@@ -595,7 +608,7 @@ button[type="submit"]:hover {
 }
 
 .visa {
-    background-color: #1A1F71; /* Visa blue */
+    background-color: #1A1F71;
 }
 
 .visa:hover {
@@ -603,91 +616,14 @@ button[type="submit"]:hover {
 }
 
 .mastercard {
-    background-color: #eb001b; /* Mastercard red */
+    background-color: #eb001b;
 }
 
 .mastercard:hover {
     background-color: #c90017;
 }
 
-/* Top Nav Donate Button */
-.nav-donate-btn {
-    background-color: #ffc107; /* A bright, eye-catching yellow */
-    color: #0A4A45 !important; /* !important to override the existing link color */
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.nav-donate-btn:hover {
-    background-color: #e0a800; /* A darker yellow on hover */
-    color: white !important;
-}
-
-/* ======================== */
-/* Responsive Design */
-/* ======================== */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 20px; 
-    }
-
-    /* Adjust the header layout for mobile */
-    .nav-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 10px 20px;
-    }
-
-    .nav-container nav ul {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-        gap: 0;
-    }
-
-    .nav-container nav li {
-        margin: 5px 0;
-    }
-
-    .logo-container .tagline {
-        display: none; 
-    }
-
-    /* Adjust cards and grids to be one column on mobile */
-    .focus-cards,
-    .team-grid,
-    .contact-grid,
-    .donation-grid {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-    }
-
-    .card,
-    .team-member,
-    .contact-info,
-    .contact-form {
-        margin-bottom: 30px; 
-    }
-
-    .hero-buttons a {
-        display: block;
-        width: 100%;
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .payment-buttons a {
-        display: block;
-        margin-bottom: 10px;
-    }
-}
-
-/* ======================== */
 /* FAQ Section Styles */
-/* ======================== */
 #faq {
     padding: 60px 0;
 }
@@ -745,15 +681,11 @@ button[type="submit"]:hover {
     padding-left: 10px;
 }
 
-/* ======================== */
 /* Blog Page Specific Styling (FIXED FOR READABILITY) */
-/* ======================== */
-
-/* Hero section for the blog page */
 #blog-hero {
     /* **NOTE:** Replace 'img/blog-hero.jpg' with the actual path to your image */
-    background: url('../img/blog-hero.jpg') no-repeat center center/cover; 
-    color: rgb(11, 115, 126); /* Changed for better contrast against background image */
+    background: url('../img/blog-hero.jpg') no-repeat center center/cover;
+    color: rgb(11, 115, 126); 
     padding: 80px 0;
     text-align: center;
 }
@@ -763,21 +695,18 @@ button[type="submit"]:hover {
     margin-bottom: 10px;
 }
 
-/* Container for the list of blog posts */
 #blog-list {
     padding: 50px 0;
 }
 
-/* Grid layout for blog posts */
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-/* Individual blog post card (Background fixed for readability) */
 .blog-post {
-    background-color: white; /* Changed from #1c967c to white for readability */
+    background-color: white; 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -801,7 +730,7 @@ button[type="submit"]:hover {
 .post-content h3 {
     margin-top: 0;
     font-size: 1.5em;
-    color: #0A4A45; /* Ensures heading is readable */
+    color: #0A4A45;
 }
 
 .post-content p {
@@ -812,7 +741,7 @@ button[type="submit"]:hover {
 .read-more {
     display: inline-block;
     margin-top: 10px;
-    color: #546E7A; /* Using a theme color */
+    color: #546E7A;
     text-decoration: none;
     font-weight: bold;
 }
@@ -821,42 +750,238 @@ button[type="submit"]:hover {
     text-decoration: underline;
 }
 
-/* Removed redundant blog text readability fix section */
-
 /* Style for the new Partner Section in the Footer */
 
 .partners-section {
     padding: 20px 0;
     text-align: center;
-    border-top: 1px solid #333; /* A separator line for clarity */
+    border-top: 1px solid #333;
     margin-top: 20px;
 }
 
 .partners-section h4 {
     margin-bottom: 15px;
     font-size: 1.2em;
-    color: #fff; /* Assuming your footer text is light-colored */
+    color: #fff;
 }
 
 .partners-logo-container {
-    display: flex; /* Arranges the logos horizontally */
-    justify-content: center; /* Centers the logos on the screen */
+    display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 30px; /* Space between the logos */
-    flex-wrap: wrap; /* Allows logos to wrap on smaller screens */
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .partner-logo {
-    /* Set a maximum height to control the size of all logos */
-    max-height: 50px; 
-    /* Set a maximum width to prevent oversized images */
-    max-width: 150px; 
+    max-height: 50px;
+    max-width: 150px;
     width: auto;
     height: auto;
-    opacity: 0.7; /* Makes logos look subtle, common practice for footers */
+    opacity: 0.7;
     transition: opacity 0.3s;
 }
 
 .partner-logo:hover {
-    opacity: 1.0; /* Full opacity on hover for effect */
+    opacity: 1.0;
+}
+
+/* ======================================================= */
+/* MEDIA QUERY FOR FULL MOBILE RESPONSIVENESS (MAX-WIDTH: 768px) */
+/* ======================================================= */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px; 
+    }
+
+    /* --- 1. Header and Navigation Centering --- */
+    .nav-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 20px;
+        align-items: center;
+    }
+    
+    .logo-container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .logo-container .tagline {
+        display: none; /* Hide tagline on small screens for space */
+    }
+
+    .nav-container nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        gap: 0;
+    }
+
+    .nav-container nav li {
+        margin: 5px 0;
+    }
+
+    /* --- 2. Generic Grid/Flex Stacking and Centering --- */
+    
+    .focus-cards,
+    .team-grid,
+    .contact-grid,
+    .donation-grid {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+    
+    /* Apply centering to all main section titles and subtitles */
+    .section-title, .section-subtitle,
+    #service-hero .container, 
+    #hero {
+        text-align: center;
+    }
+
+    .card,
+    .team-member,
+    .contact-info,
+    .contact-form,
+    .donation-options,
+    .payment-methods {
+        margin-bottom: 30px;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+    }
+
+    /* Hero buttons stacking */
+    .hero-buttons a,
+    #cta .btn-cta,
+    .payment-buttons a {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    /* --- 3. About Us Page Specific Centering --- */
+
+    /* Center text content in the story section */
+    #our-story .story-content {
+        text-align: center;
+    }
+
+    /* Stack Mission/Vision/Values cards vertically */
+    .mv-cards {
+        flex-direction: column; 
+    }
+
+    /* Center individual cards, keep content left-aligned for readability */
+    .mv-card {
+        width: 95%; 
+        margin: 0 auto; 
+        text-align: left;
+    }
+
+    /* Center team member blocks */
+    .team-member {
+        text-align: center;
+    }
+    
+    /* Center profile pictures */
+    .profile-pic {
+        display: block; 
+        margin: 0 auto 10px auto; 
+    }
+    
+    /* Center FAQ block */
+    .faq-container {
+        width: 95%;
+        margin: 0 auto;
+    }
+    
+    /* --- 4. AI & IT Training Page Specific Centering (Service Details & Form) --- */
+
+    /* Center content in service details */
+    .details-text {
+        text-align: center;
+    }
+
+    /* Center the unordered list block, keeping content left-aligned */
+    .details-text ul {
+        list-style-position: inside; 
+        text-align: left; 
+        margin: 0 auto;
+        padding-left: 0;
+        width: 90%; 
+        max-width: 400px;
+    }
+
+    /* Center the Application form container and fields */
+    #training-application-form,
+    #business-loan-form {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    /* Reset button width for mobile */
+    button[type="submit"] {
+        max-width: 100%; 
+    }
+    
+    /* --- 5. Blog Page Specific Centering --- */
+    
+    /* Change blog grid to a single column and center content */
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-post {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center the image/content block */
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .post-content {
+        text-align: center;
+        padding: 15px;
+    }
+    
+    /* Center the read more link */
+    .read-more {
+        margin: 10px auto;
+        display: block;
+        width: fit-content;
+    }
+    
+    /* --- 6. Footer Centering --- */
+    
+    footer .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .newsletter, .partners-section {
+        width: 100%;
+    }
+    
+    /* Center the Mailchimp form container (Overriding inline styles) */
+    #mc_embed_signup {
+        width: 95% !important; 
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+    
+    /* Center partner logos */
+    .partners-logo-container {
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    /* Center the final copyright text */
+    footer .container > p {
+        text-align: center;
+    }
 }
