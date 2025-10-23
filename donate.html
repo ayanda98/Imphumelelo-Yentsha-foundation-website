@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate - Imphumelelo Yensha Foundation </title>
+    <title>Donate - Imphumelelo Yensha Foundation</title>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
@@ -11,98 +14,169 @@
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
 
     <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     <style type="text/css">
-        #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 600px;}
+        /* Adjusted Mailchimp styles for responsive footer integration */
+        #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%; max-width: 450px; margin: 0 auto;}
+
+        /* Custom styles for the donation page elements */
+        .donation-options {
+            padding: 30px;
+            background-color: #f8f9fa; /* Light background for form column */
+            border-radius: 8px;
+            height: 100%;
+        }
+        .payment-methods {
+            padding: 30px;
+            height: 100%;
+        }
+        .payment-buttons .btn {
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-align: left;
+        }
+        .payment-buttons .fa-mobile-alt, 
+        .payment-buttons .fa-paypal,
+        .payment-buttons .fa-cc-visa,
+        .payment-buttons .fa-cc-mastercard {
+            margin-right: 10px;
+            width: 25px; /* Fixed width for better alignment */
+            text-align: center;
+        }
+        /* Custom radio button styling */
+        .radio-group label {
+            display: block;
+            background-color: #fff;
+            padding: 10px 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .radio-group input[type="radio"] {
+            display: none;
+        }
+        .radio-group input[type="radio"]:checked + label {
+            background-color: var(--bs-primary);
+            color: white;
+            border-color: var(--bs-primary);
+        }
     </style>
 </head>
 <body>
 
-    <header>
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" data-bs-theme="dark">
         <div class="container nav-container">
-            <div class="logo-container">
-                <img src="favicon_io/picture.jpg" alt="Imphumelelo Yensha Foundation" class="logo">
-                <span class="tagline">The Bridge Between You & Your Success</span>
+            <div class="logo-container me-lg-3">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="favicon_io/picture.png" alt="Imphumelelo Yensha Foundation Logo" class="logo me-2">
+                    <span class="tagline d-none d-sm-inline fs-6 fst-italic text-warning">The Bridge Between You & Your Success</span>
+                </a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="business.html">Business Support</a></li>
-                    <li><a href="ai-it.html">AI & IT Training</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="donate.html" class="nav-donate-btn">Donate</a></li>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <nav class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2 gap-lg-3">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="business.html">Business Support</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ai-it.html">AI & IT Training</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="donate.html" class="btn btn-warning nav-donate-btn custom-donate-btn active" aria-current="page">
+                            Donate
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <section id="service-hero">
-            <div class="container">
-                <h1>Support Our Mission</h1>
-                <p>Your contribution helps us empower entrepreneurs and innovators across Eswatini.</p>
+        <section id="service-hero" class="bg-primary text-white py-5 py-md-5 mb-5">
+            <div class="container text-center">
+                <h1 class="display-4 fw-bold mb-2">Support Our Mission</h1>
+                <p class="lead mb-0">Your contribution helps us empower entrepreneurs and innovators across Eswatini.</p>
             </div>
         </section>
 
-        <section id="donation-form">
+        <section id="donation-form" class="py-5">
             <div class="container">
-                <div class="donation-grid">
-                    <div class="donation-options">
-                        <h2 class="section-title">Your Donation Makes a Difference</h2>
-                        <form id="donation-form-details">
-                            <div class="form-group">
-                                <label>Where would you like to direct your donation?</label>
-                                <div class="radio-group">
-                                    <input type="radio" id="dept-business" name="donation-department" value="Business Development" checked>
-                                    <label for="dept-business">Business Development Department</label>
-                                    
-                                    <input type="radio" id="dept-ai" name="donation-department" value="AI & ICT Training">
-                                    <label for="dept-ai">AI & ICT Training Department</label>
-                                    
-                                    <input type="radio" id="dept-salary" name="donation-department" value="Team Salary">
-                                    <label for="dept-salary">Team & Volunteer Salaries</label>
-                                </div>
-                            </div>
+                <div class="row g-4 justify-content-center"> 
+                    
+                    <div class="col-lg-6">
+                        <div class="donation-options shadow-lg">
+                            <h2 class="section-title text-primary mb-4">Your Donation Makes a Difference</h2>
+                            <p class="mb-4">Select where you'd like your support to go and the amount you wish to contribute.</p>
                             
-                            <div class="form-group">
-                                <label for="currency">Select your preferred currency</label>
-                                <select id="currency" name="currency">
-                                    <option value="SZL">Eswatini Lilangeni (SZL)</option>
-                                    <option value="USD">US Dollar (USD)</option>
-                                    <option value="ZAR">South African Rand (ZAR)</option>
-                                    <option value="GBP">British Pound (GBP)</option>
-                                </select>
-                            </div>
+                            <form id="donation-form-details">
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">Where would you like to direct your donation?</label>
+                                    <div class="radio-group">
+                                        <input type="radio" id="dept-business" name="donation-department" value="Business Development" checked>
+                                        <label for="dept-business">Business Development Department (Seed Funding)</label>
+                                        
+                                        <input type="radio" id="dept-ai" name="donation-department" value="AI & ICT Training">
+                                        <label for="dept-ai">AI & ICT Training Department (Student Sponsorship)</label>
+                                        
+                                        <input type="radio" id="dept-salary" name="donation-department" value="Team Salary">
+                                        <label for="dept-salary">General Operations & Team Salaries</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="currency" class="form-label">Select your preferred currency</label>
+                                    <select id="currency" name="currency" class="form-select">
+                                        <option value="SZL">Eswatini Lilangeni (SZL)</option>
+                                        <option value="USD" selected>US Dollar (USD)</option>
+                                        <option value="ZAR">South African Rand (ZAR)</option>
+                                        <option value="GBP">British Pound (GBP)</option>
+                                    </select>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="amount">Enter your donation amount</label>
-                                <input type="number" id="amount" name="donation-amount" placeholder="e.g., 500" required>
-                            </div>
-                        </form>
+                                <div class="mb-4">
+                                    <label for="amount" class="form-label">Enter your donation amount</label>
+                                    <input type="number" id="amount" name="donation-amount" placeholder="e.g., 500" class="form-control form-control-lg" required>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
-                    <div class="payment-methods">
-                        <h2 class="section-title">Choose a Payment Method</h2>
-                        <p>We accept a variety of payment methods to make donating easy and secure.</p>
+                    <div class="col-lg-6">
+                        <div class="payment-methods p-4 p-md-5 bg-white shadow-lg rounded">
+                            <h2 class="section-title text-primary mb-4">Choose a Payment Method</h2>
+                            <p class="mb-4">After specifying your donation details, select one of the secure methods below to complete your contribution.</p>
 
-                        <div class="payment-buttons">
-                            <a href="#" class="payment-btn mobile-money">
-                                <i class="fas fa-mobile-alt"></i> Mobile Money (Eswatini)
-                            </a>
-                            <a href="#" class="payment-btn paypal">
-                                <i class="fab fa-paypal"></i> PayPal
-                            </a>
-                            <a href="#" class="payment-btn visa">
-                                <i class="fab fa-cc-visa"></i> Visa
-                            </a>
-                            <a href="#" class="payment-btn mastercard">
-                                <i class="fab fa-cc-mastercard"></i> Mastercard
-                            </a>
+                            <div class="payment-buttons">
+                                <a href="#" class="btn btn-primary payment-btn mobile-money">
+                                    <i class="fas fa-mobile-alt"></i> Complete Payment via Mobile Money (Eswatini)
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary payment-btn paypal">
+                                    <i class="fab fa-paypal"></i> Pay with PayPal
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary payment-btn visa">
+                                    <i class="fab fa-cc-visa"></i> Pay with Visa Card
+                                </a>
+                                <a href="#" class="btn btn-outline-secondary payment-btn mastercard">
+                                    <i class="fab fa-cc-mastercard"></i> Pay with Mastercard
+                                </a>
+                            </div>
+
+                            <p class="text-muted small mt-4 pt-3 border-top text-center">Your donation is securely processed. Thank you for your support.</p>
                         </div>
                     </div>
                 </div>
@@ -110,56 +184,62 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="bg-dark text-white py-4 mt-5">
         <div class="container">
-            <div class="newsletter">
-                <h4>Stay Up to Date!</h4>
-                <p>Subscribe to our newsletter for the latest news and updates.</p>
-                <div id="mc_embed_shell">
-                    <div id="mc_embed_signup">
-                        <form action="https://app.us9.list-manage.com/subscribe/post?u=1a7773116f47d21a917431f57&amp;id=2ddff778d9&amp;f_id=00fcc2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-                            <div id="mc_embed_signup_scroll">
-                                <h2>Subscribe</h2>
-                                <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                                <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value=""></div>
-                                <div id="mce-responses" class="clear foot">
-                                    <div class="response" id="mce-error-response" style="display: none;"></div>
-                                    <div class="response" id="mce-success-response" style="display: none;"></div>
-                                </div>
-                                <div aria-hidden="true" style="position: absolute; left: -5000px;">
-                                    <input type="text" name="b_1a7773116f47d21a917431f57_2ddff778d9" tabindex="-1" value="">
-                                </div>
-                                <div class="optionalParent">
-                                    <div class="clear foot">
-                                        <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
-                                        <p style="margin: 0px auto;"><a href="http://eepurl.com/jkFEGQ" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0 newsletter">
+                    <h4 class="text-warning">Stay Up to Date!</h4>
+                    <p class="text-muted">Subscribe to our newsletter for the latest news and updates.</p>
+                    <div id="mc_embed_shell">
+                        <div id="mc_embed_signup">
+                            <form action="https://app.us9.list-manage.com/subscribe/post?u=1a7773116f47d21a917431f57&id=2ddff778d9&f_id=00fcc2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" class="needs-validation" novalidate>
+                                <div id="mc_embed_signup_scroll">
+                                    <div class="indicates-required small text-muted"><span class="asterisk text-danger">*</span> indicates required</div>
+                                    <div class="mc-field-group mb-3">
+                                        <label for="mce-EMAIL" class="form-label">Email Address <span class="asterisk text-danger">*</span></label>
+                                        <input type="email" name="EMAIL" class="required email form-control" id="mce-EMAIL" required value="">
+                                        <div class="invalid-feedback">Please provide a valid email address.</div>
+                                    </div>
+                                    <div id="mce-responses" class="clear foot">
+                                        <div class="response" id="mce-error-response" style="display: none;"></div>
+                                        <div class="response" id="mce-success-response" style="display: none;"></div>
+                                    </div>
+                                    <div aria-hidden="true" style="position: absolute; left: -5000px;">
+                                        <input type="text" name="b_1a7773116f47d21a917431f57_2ddff778d9" tabindex="-1" value="">
+                                    </div>
+                                    <div class="optionalParent">
+                                        <div class="clear foot">
+                                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-warning mt-2" value="Subscribe">
+                                            <p class="mt-2" style="margin: 0px auto;"><a href="http://eepurl.com/jkFEGQ" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 partners-section">
+                    <h4 class="text-warning">Our Partners</h4>
+                    <div class="partners-logo-container mt-3 d-flex justify-content-center align-items-center flex-wrap gap-4">
+                        <a href="URL_OF_PARTNER_WEBSITE_1" target="_blank">
+                            <img src="images/partner1.png" alt="Partner Name 1 Logo" class="partner-logo img-fluid opacity-75 hover-opacity">
+                        </a>
+                        <a href="URL_OF_PARTNER_WEBSITE_2" target="_blank">
+                            <img src="images/partner2.png" alt="Partner Name 2 Logo" class="partner-logo img-fluid opacity-75 hover-opacity">
+                        </a>
+                        <a href="URL_OF_PARTNER_WEBSITE_3" target="_blank">
+                            <img src="Partner_logo/manyika.jpg" alt="Partner Name 3 Logo" class="partner-logo img-fluid opacity-75 hover-opacity">
+                        </a>
                     </div>
                 </div>
             </div>
-
-            <div class="partners-section">
-                <h4>Our Partners</h4>
-                <div class="partners-logo-container">
-                    <a href="URL_OF_PARTNER_WEBSITE_1" target="_blank">
-                        <img src="images/partner1.png" alt="Partner Name 1 Logo" class="partner-logo">
-                    </a>
-                    <a href="URL_OF_PARTNER_WEBSITE_2" target="_blank">
-                        <img src="images/partner2.png" alt="Partner Name 2 Logo" class="partner-logo">
-                    </a>
-                    <a href="URL_OF_PARTNER_WEBSITE_3" target="_blank">
-                        <img src="Partner_logo/manyika.jpg" alt="Partner Name 3 Logo" class="partner-logo">
-                    </a>
-                    
-                    </div>
-            </div>
-            <p>&copy; 2024 Imphumelelo Yensha Foundation. All Rights Reserved.</p>
+            <p class="text-center text-muted mt-4 pt-3 border-top border-secondary">© 2024 Imphumelelo Yensha Foundation. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
     <script src="js/script.js"></script>
 
     <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
