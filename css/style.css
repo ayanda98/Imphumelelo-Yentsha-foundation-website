@@ -1,10 +1,45 @@
+/* ======================================================= */
+/* 1. BOOTSTRAP OVERRIDES & BRANDING (MUST BE AT THE TOP) */
+/* ======================================================= */
+
+/* Injecting original brand colors into Bootstrap variables */
+:root {
+    --bs-primary: #0A4A45;      /* Dark Teal/Green */
+    --bs-secondary: #546E7A;    /* Muted Grey/Blue */
+    --bs-warning: #ffc107;      /* Yellow/Gold for Donate/Accent */
+    --bs-dark: rgb(11, 2, 2);   /* Near Black for Header/Footer */
+    --bs-body-color: #333;
+    --bs-body-bg: #f4f4f4;
+    --bs-font-sans-serif: Arial, sans-serif;
+}
+
+/* Ensure Bootstrap uses the injected colors */
+.bg-primary { background-color: var(--bs-primary) !important; }
+.text-primary { color: var(--bs-primary) !important; }
+.bg-secondary { background-color: var(--bs-secondary) !important; }
+.text-secondary { color: var(--bs-secondary) !important; }
+.btn-secondary {
+    --bs-btn-bg: var(--bs-secondary);
+    --bs-btn-border-color: var(--bs-secondary);
+    --bs-btn-hover-bg: #4A5B64;
+    --bs-btn-hover-border-color: #4A5B64;
+}
+.btn-warning {
+    --bs-btn-bg: var(--bs-warning);
+    --bs-btn-color: var(--bs-primary);
+    --bs-btn-border-color: var(--bs-warning);
+    --bs-btn-hover-bg: #e0a800;
+    --bs-btn-hover-border-color: #e0a800;
+}
+
+/* Base styles for consistency */
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--bs-font-sans-serif);
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
 }
 
 .container {
@@ -14,763 +49,116 @@ body {
     overflow: hidden;
 }
 
-/* Header */
+/* ======================================================= */
+/* 2. HEADER & NAVIGATION */
+/* ======================================================= */
+
 header {
-    background: rgb(11, 2, 2);
-    padding: 1rem 0;
+    background: var(--bs-dark);
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
 }
 
 .logo {
     height: 50px;
-    margin-right: 1rem;
 }
 
 .tagline {
-    font-size: 1rem;
     font-style: italic;
-    color: #ede508;
+    color: #ede508; /* Specific bright yellow */
     white-space: nowrap;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-nav ul li {
-    margin-left: 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #dfe6e6;
+.navbar-nav .nav-link {
+    color: #dfe6e6 !important;
     font-weight: bold;
     transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #546E7A;
+.navbar-nav .nav-link:hover {
+    color: var(--bs-secondary) !important;
 }
 
-/* Top Nav Donate Button */
-.nav-donate-btn {
-    background-color: #ffc107;
-    color: #0A4A45 !important;
-    padding: 8px 16px;
-    border-radius: 5px;
+/* Custom Animation for Donate Button */
+.custom-donate-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
     font-weight: bold;
     text-transform: uppercase;
-    transition: background-color 0.3s, color 0.3s;
 }
 
-.nav-donate-btn:hover {
-    background-color: #e0a800;
-    color: white !important;
+.custom-donate-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2); /* Subtle white circle */
+    border-radius: 50%;
+    transition: width 0.4s ease-out, height 0.4s ease-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
-/* Footer */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
+.custom-donate-btn:hover::after {
+    width: 300%;
+    height: 300%;
 }
 
-/* Hero Section */
+/* ======================================================= */
+/* 3. LAYOUT & UTILITIES (Hover Effects) */
+/* ======================================================= */
+
+/* Subtle lift/shadow on hover for cards and buttons */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* Image opacity effect for partners */
+.hover-opacity {
+    transition: opacity 0.3s ease;
+}
+
+.hover-opacity:hover {
+    opacity: 1.0 !important;
+}
+
+/* Hero Section (Custom padding for vertical height) */
 #hero {
-    background: #0A4A45;
-    color: white;
-    text-align: center;
-    padding: 100px 20px;
+    padding-top: 100px; 
+    padding-bottom: 100px;
 }
 
-#hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-#hero p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 30px;
-}
-
-.hero-buttons {
-    margin-top: 30px;
-}
-
-.hero-buttons .btn {
-    margin: 0 10px;
-}
-
-.btn {
-    background: white;
-    color: #0A4A45;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s, color 0.3s;
-}
-
-.btn:hover {
-    background: #546E7A;
-    color: white;
-}
-
-/* Our Focus Section */
-#focus {
-    padding: 80px 20px;
-    background: #f9f9f9;
-}
+/* ======================================================= */
+/* 4. CONTENT SECTIONS (Focus, Mission, CTA) */
+/* ======================================================= */
 
 .section-title {
-    text-align: center;
     font-size: 2.5rem;
-    color: #0A4A45;
-    margin-bottom: 10px;
 }
 
 .section-subtitle {
-    text-align: center;
     font-size: 1.2rem;
     color: #555;
-    margin-bottom: 40px;
 }
 
-.focus-cards {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.card {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-    flex: 1;
-    max-width: 500px;
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-}
-
-.card i {
+/* Focus Cards */
+.focus-cards .card i {
     font-size: 3rem;
-    color: #0A4A45;
-    margin-bottom: 20px;
 }
 
-.card h3 {
-    font-size: 1.8rem;
-    color: #0A4A45;
-    margin-bottom: 15px;
-}
-
-.card p {
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.btn-card {
-    background: #546E7A;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.btn-card:hover {
-    background: #0A4A45;
-}
-
-/* Service Hero Section (Used on Contact/Donate/AI/Business/About) */
-#service-hero {
-    background: #0A4A45;
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-}
-
-#service-hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-#service-hero p {
-    font-size: 1.2rem;
-}
-
-/* Service Details Section */
-#service-details {
-    padding: 60px 20px;
-    background: white;
-}
-
-.details-text {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.details-text h2 {
-    font-size: 2rem;
-    color: #0A4A45;
-    margin-bottom: 20px;
-}
-
-.details-text ul {
-    list-style: none;
-    padding: 0;
-}
-
-.details-text ul li {
-    background: #f4f4f4;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.details-text ul li i {
-    color: #546E7A;
-    font-size: 1.5rem;
-    margin-right: 15px;
-    width: 30px;
-}
-
-/* Application Form Section */
-#application-form {
-    padding: 80px 20px;
-    background: #f9f9f9;
-}
-
-#training-application-form, /* Added from AI page */
-#business-loan-form {
-    max-width: 700px;
-    margin: 0 auto;
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #0A4A45;
-}
-
-input, textarea, select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-
-button[type="submit"] {
-    background: #0A4A45;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background 0.3s;
-    /* Center button on mobile */
-    display: block; 
-    width: 100%;
-    max-width: 300px;
-    margin: 20px auto 0;
-}
-
-button[type="submit"]:hover {
-    background: #546E7A;
-}
-
-/* About Us Styling */
-#our-story {
-    padding: 80px 20px;
-    background-color: #f4f4f4;
-}
-
-.story-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.story-content h2 {
-    color: #0A4A45;
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-}
-
-.mv-cards {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.mv-card {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    flex: 1;
-    min-width: 250px;
-    text-align: left; /* Keep text readable */
-}
-
-#team {
-    padding: 80px 20px;
-    background-color: white;
-}
-
-.team-group h3 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    color: #0A4A45;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.team-member {
-    text-align: center;
-    background-color: #f9f9f9;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s;
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-}
-
-.profile-pic {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #0A4A45;
-    margin-bottom: 20px;
-}
-
-.team-member h3 {
-    color: #0A4A45;
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-}
-
-.team-member .role {
-    color: #546E7A;
-    font-style: italic;
-}
-
-/* Contact Page Styling */
-#contact-content {
-    padding: 80px 20px;
-    background-color: white;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 50px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.contact-info {
-    background-color: #f9f9f9;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.contact-info h2 {
-    color: #0A4A45;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.contact-info p {
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.contact-item i {
-    font-size: 1.5rem;
-    color: #546E7A;
-    margin-right: 15px;
-    width: 30px;
-}
-
-.contact-item p {
-    margin: 0;
-}
-
-.social-icons {
-    margin-top: 30px;
-}
-
-.social-icons a {
-    color: #0A4A45;
-    font-size: 1.8rem;
-    margin-right: 20px;
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #546E7A;
-}
-
-.contact-form {
-    background-color: #f9f9f9;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-/* Call to Action Section */
-#cta {
-    background-color: #0A4A45;
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-}
-
-#cta h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-#cta p {
-    font-size: 1.2rem;
-    max-width: 800px;
-    margin: 0 auto 40px;
-}
-
-.btn-cta {
-    background: white;
-    color: #0A4A45;
-    padding: 15px 30px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s, color 0.3s;
-    margin: 0 10px;
-}
-
-.btn-cta:hover {
-    background: #f0f0f0;
-}
-
-.btn-secondary {
-    background: #546E7A;
-    color: white;
-}
-
-.btn-secondary:hover {
-    background: #4A5B64;
-}
-
-/* Donation Page Styles */
-#donation-form {
-    padding: 80px 20px;
-    background-color: #f4f4f4;
-}
-
-.donation-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 50px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.donation-options, .payment-methods {
-    background-color: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.donation-options .form-group label, .payment-methods h2 {
-    color: #0A4A45;
-}
-
-.radio-group label {
-    display: block;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.radio-group input[type="radio"] {
-    display: none;
-}
-
-.radio-group input[type="radio"]:checked + label {
-    background-color: #546E7A;
-    color: white;
-    font-weight: bold;
-}
-
-.payment-methods p {
-    margin-bottom: 30px;
-}
-
-.payment-buttons {
-    display: grid;
-    gap: 15px;
-}
-
-.payment-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-    transition: transform 0.3s;
-}
-
-.payment-btn:hover {
-    transform: translateY(-5px);
-}
-
-.mobile-money {
-    background-color: #2196F3;
-}
-
-.mobile-money:hover {
-    background-color: #1976D2;
-}
-
-.paypal {
-    background-color: #00457C;
-}
-
-.paypal:hover {
-    background-color: #003666;
-}
-
-.visa {
-    background-color: #1A1F71;
-}
-
-.visa:hover {
-    background-color: #121650;
-}
-
-.mastercard {
-    background-color: #eb001b;
-}
-
-.mastercard:hover {
-    background-color: #c90017;
-}
-
-/* FAQ Section Styles */
-#faq {
-    padding: 60px 0;
-}
-
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.faq-item summary {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #0A4A45;
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.faq-item summary::-webkit-details-marker {
-    display: none;
-}
-
-.faq-item summary:after {
-    content: '+';
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #0A4A45;
-    transition: transform 0.3s ease;
-}
-
-.faq-item[open] summary:after {
-    content: '−';
-    transform: rotate(180deg);
-}
-
-.faq-item p {
-    margin-top: 15px;
-    line-height: 1.6;
-    color: #555;
-    padding-left: 10px;
-}
-
-/* Blog Page Specific Styling (FIXED FOR READABILITY) */
-#blog-hero {
-    /* **NOTE:** Replace 'img/blog-hero.jpg' with the actual path to your image */
-    background: url('../img/blog-hero.jpg') no-repeat center center/cover;
-    color: rgb(11, 115, 126); 
-    padding: 80px 0;
-    text-align: center;
-}
-
-#blog-hero h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-#blog-list {
-    padding: 50px 0;
-}
-
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.blog-post {
-    background-color: white; 
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.blog-post:hover {
-    transform: translateY(-5px);
-}
-
-.blog-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.post-content {
-    padding: 20px;
-}
-
-.post-content h3 {
-    margin-top: 0;
-    font-size: 1.5em;
-    color: #0A4A45;
-}
-
-.post-content p {
-    color: #555;
-    font-size: 0.9em;
-}
-
-.read-more {
-    display: inline-block;
-    margin-top: 10px;
-    color: #546E7A;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.read-more:hover {
-    text-decoration: underline;
-}
-
-/* Style for the new Partner Section in the Footer */
-
-.partners-section {
-    padding: 20px 0;
-    text-align: center;
-    border-top: 1px solid #333;
-    margin-top: 20px;
-}
-
-.partners-section h4 {
-    margin-bottom: 15px;
-    font-size: 1.2em;
-    color: #fff;
-}
+/* ======================================================= */
+/* 5. FOOTER & PARTNERS */
+/* ======================================================= */
 
 .partners-logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    padding: 20px 0;
 }
 
 .partner-logo {
@@ -778,210 +166,54 @@ button[type="submit"]:hover {
     max-width: 150px;
     width: auto;
     height: auto;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-
-.partner-logo:hover {
-    opacity: 1.0;
 }
 
 /* ======================================================= */
-/* MEDIA QUERY FOR FULL MOBILE RESPONSIVENESS (MAX-WIDTH: 768px) */
+/* 6. MEDIA QUERIES (Bootstrap handles most, but we fine-tune) */
 /* ======================================================= */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 20px; 
-    }
 
-    /* --- 1. Header and Navigation Centering --- */
-    .nav-container {
-        flex-direction: column;
+@media (max-width: 992px) {
+    /* Navbar Toggle on smaller screens */
+    .navbar-collapse {
         text-align: center;
-        padding: 10px 20px;
-        align-items: center;
-    }
-    
-    .logo-container {
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .logo-container .tagline {
-        display: none; /* Hide tagline on small screens for space */
-    }
-
-    .nav-container nav ul {
-        flex-direction: column;
-        align-items: center;
         margin-top: 10px;
-        gap: 0;
     }
-
-    .nav-container nav li {
+    .navbar-nav .nav-item {
         margin: 5px 0;
     }
+}
 
-    /* --- 2. Generic Grid/Flex Stacking and Centering --- */
-    
-    .focus-cards,
-    .team-grid,
-    .contact-grid,
-    .donation-grid {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-    }
-    
-    /* Apply centering to all main section titles and subtitles */
-    .section-title, .section-subtitle,
-    #service-hero .container, 
+@media (max-width: 768px) {
+    /* Adjust Hero padding for mobile */
     #hero {
-        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    #hero h1 {
+        font-size: 2rem;
     }
 
-    .card,
-    .team-member,
-    .contact-info,
-    .contact-form,
-    .donation-options,
-    .payment-methods {
-        margin-bottom: 30px;
-        width: 100%;
-        max-width: none;
-        box-sizing: border-box;
-    }
-
-    /* Hero buttons stacking */
+    /* Stack CTA buttons on mobile */
     .hero-buttons a,
-    #cta .btn-cta,
-    .payment-buttons a {
+    #cta .btn-cta {
         display: block;
-        width: 100%;
-        margin: 10px 0;
-        text-align: center;
-    }
-    
-    /* --- 3. About Us Page Specific Centering --- */
-
-    /* Center text content in the story section */
-    #our-story .story-content {
-        text-align: center;
-    }
-
-    /* Stack Mission/Vision/Values cards vertically */
-    .mv-cards {
-        flex-direction: column; 
-    }
-
-    /* Center individual cards, keep content left-aligned for readability */
-    .mv-card {
-        width: 95%; 
-        margin: 0 auto; 
-        text-align: left;
-    }
-
-    /* Center team member blocks */
-    .team-member {
-        text-align: center;
-    }
-    
-    /* Center profile pictures */
-    .profile-pic {
-        display: block; 
-        margin: 0 auto 10px auto; 
-    }
-    
-    /* Center FAQ block */
-    .faq-container {
-        width: 95%;
-        margin: 0 auto;
-    }
-    
-    /* --- 4. AI & IT Training Page Specific Centering (Service Details & Form) --- */
-
-    /* Center content in service details */
-    .details-text {
-        text-align: center;
-    }
-
-    /* Center the unordered list block, keeping content left-aligned */
-    .details-text ul {
-        list-style-position: inside; 
-        text-align: left; 
-        margin: 0 auto;
-        padding-left: 0;
-        width: 90%; 
-        max-width: 400px;
-    }
-
-    /* Center the Application form container and fields */
-    #training-application-form,
-    #business-loan-form {
-        width: 100%;
-        padding: 20px;
-    }
-    
-    /* Reset button width for mobile */
-    button[type="submit"] {
-        max-width: 100%; 
-    }
-    
-    /* --- 5. Blog Page Specific Centering --- */
-    
-    /* Change blog grid to a single column and center content */
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .blog-post {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Center the image/content block */
-        width: 95%;
-        margin: 0 auto;
-    }
-
-    .post-content {
-        text-align: center;
-        padding: 15px;
-    }
-    
-    /* Center the read more link */
-    .read-more {
-        margin: 10px auto;
-        display: block;
-        width: fit-content;
-    }
-    
-    /* --- 6. Footer Centering --- */
-    
-    footer .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .newsletter, .partners-section {
+        margin: 10px 0 !important;
         width: 100%;
     }
     
-    /* Center the Mailchimp form container (Overriding inline styles) */
+    /* Mailchimp form fix for small screens */
     #mc_embed_signup {
-        width: 95% !important; 
-        margin: 0 auto;
-        box-sizing: border-box;
-    }
-    
-    /* Center partner logos */
-    .partners-logo-container {
-        gap: 15px;
-        padding: 0 10px;
-    }
-
-    /* Center the final copyright text */
-    footer .container > p {
-        text-align: center;
+        width: 100% !important; 
     }
 }
+
+/* ======================================================= */
+/* 7. PRESERVED ORIGINAL STYLES (Adjusted for Bootstrap) */
+/* ======================================================= */
+
+/* Removed all explicit width/flex/grid properties 
+   from the original CSS that are now handled by Bootstrap classes
+   (e.g., .container, .nav-container, .focus-cards, .mv-cards).
+   Only custom styling not covered by BS is kept. */
+
+/* END OF CSS FILE */
