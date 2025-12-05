@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI & IT Training - Imphumelelo Yensha Foundation</title>
 
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
@@ -14,6 +13,9 @@
     <link rel="manifest" href="favicon_io/site.webmanifest">
     <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400&family=Sansation:ital,wght@0,400;0,700;1,400;1,700">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
@@ -21,30 +23,20 @@
 
     <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     <style type="text/css">
-        /* Adjusted Mailchimp styles for responsive footer integration */
-        #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%; max-width: 450px; margin: 0 auto;}
-        
-        /* Custom form styling for better look on large screens */
-        #application-form .form-group {
-            margin-bottom: 1.5rem;
-        }
-        #application-form form {
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+        #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%;}
     </style>
 </head>
 <body>
 
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" data-bs-theme="dark">
+    <header class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container nav-container">
-            <div class="logo-container me-lg-3">
-                <a class="navbar-brand d-flex align-items-center" href="index.html">
-                    <img src="favicon_io/picture.png" alt="Imphumelelo Yensha Foundation Logo" class="logo me-2">
-                    <span class="tagline d-none d-sm-inline fs-6 fst-italic text-warning">The Bridge Between You & Your Success</span>
+            <div class="logo-container me-lg-4">
+                <a class="navbar-brand d-flex align-items-center p-0" href="index.html">
+                    <img src="favicon_io/picture.png" alt="Imphumelelo Yensha Foundation Logo" class="logo">
+                    <div class="stacked-text">
+                        <p class="foundation-name d-none d-sm-block">Imphumelelo Yensha Foundation</p>
+                        <span class="tagline d-none d-sm-block">The Bridge Between You & Your Success</span>
+                    </div>
                 </a>
             </div>
             
@@ -56,7 +48,7 @@
                 <ul class="navbar-nav gap-2 gap-lg-3">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="business.html">Business Support</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="ai-it.html">AI & IT Training</a></li>
+                    <li class="nav-item"><a class="nav-link" href="ai-it.html">AI & IT Training</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -71,190 +63,133 @@
     </header>
 
     <main>
-        <section id="service-hero" class="bg-primary text-white py-5 py-md-5">
-            <div class="container text-center">
-                <h1 class="display-4 fw-bold mb-2">AI & IT Training</h1>
-                <p class="lead mb-0">Unlock your potential with our expert-led training in artificial intelligence and essential IT skills.</p>
+        <section id="hero" class="text-white ai-it-hero" style="background-image: url('images/ai-it-hero.jpg'); background-size: cover; background-position: center;">
+            <div class="container text-center py-5 py-md-6">
+                <h1 class="display-3 fw-bold mb-3">Training the Next Digital Generation</h1>
+                <p class="lead mb-0 mx-auto" style="max-width: 800px;">Providing essential digital literacy, specialized IT skills, and an introduction to Artificial Intelligence to empower Eswatini's future workforce.</p>
             </div>
         </section>
 
-        <section id="service-details" class="py-5 bg-light">
+        <section id="training-pillars" class="py-5 py-md-6 bg-white">
+            <div class="container">
+                <h2 class="section-title text-primary text-center mb-5">Our Core Training Pillars</h2>
+                
+                <div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+                    <div class="col">
+                        <div class="card h-100 p-4 shadow-sm hover-lift">
+                            <i class="fas fa-desktop display-5 text-warning mb-3"></i>
+                            <h4 class="card-title text-primary">Digital Literacy</h4>
+                            <p class="card-text">Foundational skills including basic computer operations, internet safety, and effective use of office software and cloud tools.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 p-4 shadow-sm hover-lift">
+                            <i class="fas fa-code display-5 text-warning mb-3"></i>
+                            <h4 class="card-title text-primary">Specialized IT Skills</h4>
+                            <p class="card-text">Training in areas like web design (HTML/CSS), basic programming, and data management relevant to modern small businesses.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100 p-4 shadow-sm hover-lift">
+                            <i class="fas fa-brain display-5 text-warning mb-3"></i>
+                            <h4 class="card-title text-primary">Introduction to AI</h4>
+                            <p class="card-text">Understanding the basics of Artificial Intelligence and how to leverage AI tools for business efficiency and innovation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="methodology" class="py-5 bg-light">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-7 details-text mb-4 mb-lg-0">
-                        <h2 class="text-primary mb-3">Our Training Programs</h2>
-                        <p class="fs-5 text-muted">We provide comprehensive and hands-on training designed to equip you with the skills needed to thrive in the digital world. Our courses are taught by industry experts and are tailored for all skill levels.</p>
-                        <ul class="list-unstyled mt-4 fs-5">
-                            <li class="mb-3"><i class="fas fa-brain text-warning me-3 fa-lg"></i> 
-                                **Introduction to AI:** Learn the basics of AI, machine learning, and how to use tools like **ChatGPT** effectively.
-                            </li>
-                            <li class="mb-3"><i class="fas fa-laptop-code text-warning me-3 fa-lg"></i> 
-                                **Fundamental IT Skills:** Master essential computer skills, software applications, and basic troubleshooting.
-                            </li>
-                            <li class="mb-3"><i class="fas fa-shield-alt text-warning me-3 fa-lg"></i> 
-                                **Cybersecurity for Beginners:** Understand the importance of digital security and learn how to protect yourself online.
-                            </li>
-                            <li class="mb-3"><i class="fas fa-hands-helping text-warning me-3 fa-lg"></i> 
-                                **Career Guidance:** Receive personalized mentorship to help you find your path in the tech industry.
-                            </li>
+                    <div class="col-lg-6 mb-4 mb-lg-0 order-lg-2">
+                        <h2 class="section-title text-primary mb-3">Hands-On, Practical Learning</h2>
+                        <p class="lead">Our methodology ensures graduates are job-ready and capable of applying their knowledge immediately. We focus on project-based learning and real-world scenarios.</p>
+                        <ul>
+                            <li>**Practical Workshops:** 70% of training time is dedicated to hands-on exercises and coding sessions.</li>
+                            <li>**Industry Expert Guest Lecturers:** Learn directly from professionals working in the African tech sector.</li>
+                            <li>**Post-Course Mentoring:** Continued support to help graduates find jobs or integrate IT into their new businesses.</li>
                         </ul>
+                        <a href="#enrollment-form" class="btn btn-secondary btn-lg mt-3 hover-lift">View Enrollment Dates</a>
                     </div>
-                    <div class="col-lg-5">
-                         <img src="images/ai_training_graphic.jpg" alt="AI and IT Training graphic" class="img-fluid rounded shadow-lg">
+                    <div class="col-lg-6 order-lg-1">
+                        <img src="team_pics/yolie.jpg" alt="A training class learning about AI" class="img-fluid rounded shadow-lg hover-lift">
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="application-form" class="py-5 bg-white">
+        <section id="enrollment-form" class="py-5 bg-white">
             <div class="container">
-                <h2 class="section-title text-primary text-center mb-5">Apply for Training</h2>
-                <form id="training-application-form" action="https://formspree.io/f/mqkrvkpv" method="POST" class="bg-light p-4 p-md-5 shadow-lg rounded">
-                    
-                    <h3 class="text-secondary mb-4 border-bottom pb-2">Training Preference</h3>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group mb-4">
-                                <label for="course" class="form-label">Course of Interest</label>
-                                <select id="course" name="Course_of_Interest" class="form-select" required>
-                                    <option value="">-- Select a course --</option>
-                                    <option value="intro-to-ai">Introduction to AI</option>
-                                    <option value="it-fundamentals">Fundamental IT Skills</option>
-                                    <option value="cybersecurity">Cybersecurity for Beginners</option>
-                                    <option value="other">Other</option>
+                <h2 class="section-title text-center text-primary mb-4">Enrollment Application for AI & IT Training</h2>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <p class="text-center lead mb-4">Secure your spot in our upcoming intake. Spaces are limited.</p>
+                        
+                        <form id="ai-it-form" class="p-4 shadow-lg rounded">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="fullName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="enrollmentEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="enrollmentEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="enrollmentPhone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="enrollmentPhone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="programInterest" class="form-label">Area of Interest <span class="text-danger">*</span></label>
+                                <select class="form-select" id="programInterest" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option>Digital Literacy (Beginner)</option>
+                                    <option>Specialized IT Skills (Intermediate)</option>
+                                    <option>Introduction to AI (Advanced)</option>
                                 </select>
                             </div>
-                        </div>
+                            <div class="mb-3">
+                                <label for="motivation" class="form-label">Why are you interested in this training? (Max 300 words) <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="motivation" rows="4" required></textarea>
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="trainingTermsCheck" required>
+                                <label class="form-check-label" for="trainingTermsCheck">I confirm my availability for the upcoming cohort <span class="text-danger">*</span></label>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100 mt-4 hover-lift">Submit Enrollment Form</button>
+                        </form>
                     </div>
-                    <div class="form-group mb-5">
-                        <label for="message" class="form-label">Why are you interested in this training? (100 words max)</label>
-                        <textarea id="message" name="Reason_for_Interest" rows="4" class="form-control" required placeholder="Explain how this course will help you achieve your career or business goals."></textarea>
-                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <h3 class="text-secondary mt-4 mb-4 border-bottom pb-2">Applicant Personal Details</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="full-name" class="form-label">Full Name</label>
-                                <input type="text" id="full-name" name="Full_Name" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="id-number" class="form-label">ID Number</label>
-                                <input type="text" id="id-number" name="ID_Number" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="dob" class="form-label">Date of Birth</label>
-                                <input type="date" id="dob" name="Date_of_Birth" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="gender" class="form-label">Gender</label>
-                                <select id="gender" name="Gender" class="form-select" required>
-                                    <option value="">-- Select an option --</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" id="email" name="Email_Address" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" id="phone" name="Phone_Number" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="text-secondary mt-4 mb-4 border-bottom pb-2">Applicant Location</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="region" class="form-label">Region</label>
-                                <input type="text" id="region" name="Region" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="inkhundla" class="form-label">Inkhundla</label>
-                                <input type="text" id="inkhundla" name="Inkhundla" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="umphakatsi" class="form-label">Umphakatsi (Chiefdom)</label>
-                                <input type="text" id="umphakatsi" name="Umphakatsi" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="town-city" class="form-label">Town/City</label>
-                                <input type="text" id="town-city" name="Town_City" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h3 class="text-secondary mt-4 mb-4 border-bottom pb-2">Next of Kin Details</h3>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="next-of-kin-name" class="form-label">Next of Kin Full Name</label>
-                                <input type="text" id="next-of-kin-name" name="Next_of_Kin_Name" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="next-of-kin-relationship" class="form-label">Relationship to Applicant</label>
-                                <input type="text" id="next-of-kin-relationship" name="Next_of_Kin_Relationship" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="next-of-kin-phone" class="form-label">Next of Kin Phone Number</label>
-                                <input type="tel" id="next-of-kin-phone" name="Next_of_Kin_Phone_Number" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group mb-3">
-                                <label for="next-of-kin-id" class="form-label">Next of Kin ID Number</label>
-                                <input type="text" id="next-of-kin-id" name="Next_of_Kin_ID_Number" class="form-control" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="text-center mt-5">
-                        <button type="submit" class="btn btn-primary btn-lg custom-donate-btn w-50">Submit Application</button>
-                    </div>
-                </form>
+        <section id="cta" class="bg-dark text-white">
+            <div class="container text-center">
+                <h2 class="display-5 fw-bold mb-3">Partner with Us or Apply for Funding</h2>
+                <p class="lead mx-auto" style="max-width: 800px;">Explore how else we can support your growth or contribute to our mission.</p>
+                <div class="mt-4">
+                    <a href="business.html" class="btn btn-lg btn-light btn-cta me-3 hover-lift">Apply for Business Support</a>
+                    <a href="donate.html" class="btn btn-lg btn-secondary btn-cta hover-lift">Make a Donation</a>
+                </div>
             </div>
         </section>
     </main>
-
-    <footer class="bg-dark text-white py-4">
+    
+    <footer class="bg-dark text-white">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0 newsletter">
+                <div class="col-lg-6 mb-5 mb-lg-0 newsletter">
                     <h4 class="text-warning">Stay Up to Date!</h4>
                     <p class="text-muted">Subscribe to our newsletter for the latest news and updates.</p>
                     <div id="mc_embed_shell">
                         <div id="mc_embed_signup">
-                            <form action="https://app.us9.list-manage.com/subscribe/post?u=1a7773116f47d21a917431f57&amp;id=2ddff778d9&amp;f_id=00fcc2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" class="needs-validation" novalidate>
+                            <form action="https://app.us9.list-manage.com/subscribe/post?u=1a7773116f47d21a917431f57&amp;id=2ddff778d9&amp;f_id=00fcc2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
                                 <div id="mc_embed_signup_scroll">
-                                    <div class="indicates-required small text-muted"><span class="asterisk text-danger">*</span> indicates required</div>
+                                    <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
                                     <div class="mc-field-group mb-3">
-                                        <label for="mce-EMAIL" class="form-label">Email Address <span class="asterisk text-danger">*</span></label>
-                                        <input type="email" name="EMAIL" class="required email form-control" id="mce-EMAIL" required value="">
-                                        <div class="invalid-feedback">Please provide a valid email address.</div>
+                                        <label for="mce-EMAIL" class="form-label">Email Address <span class="asterisk">*</span></label>
+                                        <input type="email" name="EMAIL" class="required email form-control" id="mce-EMAIL" required="" value="">
                                     </div>
                                     <div id="mce-responses" class="clear foot">
                                         <div class="response" id="mce-error-response" style="display: none;"></div>
@@ -265,8 +200,8 @@
                                     </div>
                                     <div class="optionalParent">
                                         <div class="clear foot">
-                                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-warning mt-2" value="Subscribe">
-                                            <p class="mt-2" style="margin: 0px auto;"><a href="http://eepurl.com/jkFEGQ" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
+                                            <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-warning" value="Subscribe">
+                                            <p style="margin: 10px auto;"><a href="http://eepurl.com/jkFEGQ" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -296,8 +231,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
-    <script src="js/script.js"></script>
-
+    <script src="js/script.js"></script> 
     <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
     <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='COMPANY';ftypes[6]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 </body>

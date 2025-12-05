@@ -1,219 +1,280 @@
-/* ======================================================= */
-/* 1. BOOTSTRAP OVERRIDES & BRANDING (MUST BE AT THE TOP) */
-/* ======================================================= */
+/*
+* Imphumelelo Yensha Foundation Custom Styles
+* Inspired by Eswatec/Squarespace 7.1 modern aesthetic
+*/
 
-/* Injecting original brand colors into Bootstrap variables */
+/* --- 1. Global Reset & Fonts --- */
+
 :root {
-    --bs-primary: #0A4A45;      /* Dark Teal/Green */
-    --bs-secondary: #546E7A;    /* Muted Grey/Blue */
-    --bs-warning: #ffc107;      /* Yellow/Gold for Donate/Accent */
-    --bs-dark: rgb(11, 2, 2);   /* Near Black for Header/Footer */
-    --bs-body-color: #333;
-    --bs-body-bg: #f4f4f4;
-    --bs-font-sans-serif: Arial, sans-serif;
+    --bs-primary: #004d99; /* Deep Blue */
+    --bs-secondary: #4a4e69; /* Dark Gray/Slate */
+    --bs-success: #28a745; /* Green */
+    --bs-info: #17a2b8; /* Cyan */
+    --bs-warning: #ffc107; /* Gold/Yellow Accent */
+    --bs-danger: #dc3545; /* Red */
+    --bs-light: #f8f9fa;
+    --bs-dark: #212529;
+
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'PT Serif', serif;
+    --font-sansation: 'Sansation', sans-serif;
 }
 
-/* Ensure Bootstrap uses the injected colors */
-.bg-primary { background-color: var(--bs-primary) !important; }
-.text-primary { color: var(--bs-primary) !important; }
-.bg-secondary { background-color: var(--bs-secondary) !important; }
-.text-secondary { color: var(--bs-secondary) !important; }
-.btn-secondary {
-    --bs-btn-bg: var(--bs-secondary);
-    --bs-btn-border-color: var(--bs-secondary);
-    --bs-btn-hover-bg: #4A5B64;
-    --bs-btn-hover-border-color: #4A5B64;
-}
-.btn-warning {
-    --bs-btn-bg: var(--bs-warning);
-    --bs-btn-color: var(--bs-primary);
-    --bs-btn-border-color: var(--bs-warning);
-    --bs-btn-hover-bg: #e0a800;
-    --bs-btn-hover-border-color: #e0a800;
-}
-
-/* Base styles for consistency */
 body {
-    font-family: var(--bs-font-sans-serif);
-    margin: 0;
-    padding: 0;
+    font-family: var(--font-primary);
     line-height: 1.6;
-    background-color: var(--bs-body-bg);
-    color: var(--bs-body-color);
+    background-color: var(--bs-light);
+    color: var(--bs-dark);
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
+h1, h2, h3, h4, h5, h6, .display-1, .display-2, .display-3, .display-4, .display-5 {
+    font-family: var(--font-primary);
+    font-weight: 700;
 }
 
-/* ======================================================= */
-/* 2. HEADER & NAVIGATION */
-/* ======================================================= */
+/* --- 2. Utility & Component Styles --- */
 
-header {
-    background: var(--bs-dark);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.logo {
-    height: 50px;
-}
-
-.tagline {
-    font-style: italic;
-    color: #ede508; /* Specific bright yellow */
-    white-space: nowrap;
-}
-
-.navbar-nav .nav-link {
-    color: #dfe6e6 !important;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.navbar-nav .nav-link:hover {
-    color: var(--bs-secondary) !important;
-}
-
-/* Custom Animation for Donate Button */
-.custom-donate-btn {
+.section-title {
+    font-family: var(--font-sansation);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
     position: relative;
-    overflow: hidden;
-    z-index: 1;
-    font-weight: bold;
-    text-transform: uppercase;
+    padding-bottom: 0.5rem;
 }
 
-.custom-donate-btn::after {
+.section-title::after {
     content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2); /* Subtle white circle */
-    border-radius: 50%;
-    transition: width 0.4s ease-out, height 0.4s ease-out;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--bs-warning);
+    margin: 0.5rem auto 0;
 }
 
-.custom-donate-btn:hover::after {
-    width: 300%;
-    height: 300%;
+.text-primary { color: var(--bs-primary) !important; }
+.text-warning { color: var(--bs-warning) !important; }
+
+.btn-primary {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #003366;
+    border-color: #003366;
 }
 
-/* ======================================================= */
-/* 3. LAYOUT & UTILITIES (Hover Effects) */
-/* ======================================================= */
+.btn-warning {
+    background-color: var(--bs-warning);
+    border-color: var(--bs-warning);
+    color: var(--bs-dark);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+.btn-warning:hover {
+    background-color: #ffaa00;
+    border-color: #ffaa00;
+}
 
-/* Subtle lift/shadow on hover for cards and buttons */
+/* Hover Effect for Cards/Elements */
 .hover-lift {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .hover-lift:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Image opacity effect for partners */
-.hover-opacity {
-    transition: opacity 0.3s ease;
+/* --- 3. Header and Navigation Styles --- */
+
+/* Updated: Change the default dark background to pure black */
+.navbar-dark {
+    background-color: #000000 !important; /* Pure Black Background */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.hover-opacity:hover {
-    opacity: 1.0 !important;
+.logo-container {
+    display: flex; /* Makes logo and stacked-text side-by-side */
+    align-items: center;
+    max-width: 350px;
+    padding-top: 5px; 
+    padding-bottom: 5px;
 }
 
-/* Hero Section (Custom padding for vertical height) */
-#hero {
-    padding-top: 100px; 
-    padding-bottom: 100px;
-}
-
-/* ======================================================= */
-/* 4. CONTENT SECTIONS (Focus, Mission, CTA) */
-/* ======================================================= */
-
-.section-title {
-    font-size: 2.5rem;
-}
-
-.section-subtitle {
-    font-size: 1.2rem;
-    color: #555;
-}
-
-/* Focus Cards */
-.focus-cards .card i {
-    font-size: 3rem;
-}
-
-/* ======================================================= */
-/* 5. FOOTER & PARTNERS */
-/* ======================================================= */
-
-.partners-logo-container {
-    padding: 20px 0;
-}
-
-.partner-logo {
+.logo {
+    width: 50px; /* Slightly larger logo */
+    height: 50px;
     max-height: 50px;
+    object-fit: contain;
+    background-color: black; /* Blends the logo image with the header */
+    border-radius: 4px; 
+}
+
+/* Updated: This is the crucial part that stacks the Name and Tagline */
+.stacked-text {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    justify-content: center;
+    margin-left: 10px; /* Space between logo and text */
+}
+
+.foundation-name {
+    font-family: var(--font-sansation);
+    font-size: 1.2rem; /* Larger font for main name */
+    font-weight: 700;
+    line-height: 1.2;
+    color: white; /* Name visible on black background */
+    margin-bottom: 0; /* Important: Removes space between name and tagline */
+}
+
+.tagline {
+    font-family: var(--font-sansation);
+    font-weight: 400;
+    font-size: 0.8rem; /* Smaller font for tagline */
+    line-height: 1;
+    color: var(--bs-warning); /* Keep the warning color */
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--bs-warning) !important;
+    background-color: transparent !important;
+}
+
+/* Custom styling for the Donate button in the Nav */
+.custom-donate-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+/* --- 4. Hero Section Styles --- */
+
+#hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    color: white; 
+}
+
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+#hero > .container {
+    z-index: 2; 
+}
+
+/* Specific Hero Overrides */
+.home-hero {
+    background-position: center;
+    background-attachment: fixed; 
+}
+
+.business-hero, .ai-it-hero, .about-hero, .blog-hero, .contact-hero, .donate-hero {
+    min-height: 40vh; 
+    background-position: center top;
+}
+
+/* --- 5. Content Sections --- */
+
+/* Feature Boxes/Cards */
+.feature-box {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.icon-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--bs-warning);
+    color: var(--bs-primary);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* Partner Logos */
+.partners-logo-container img.partner-logo {
+    max-height: 60px;
     max-width: 150px;
-    width: auto;
-    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, opacity 0.3s ease;
+    opacity: 0.6;
 }
 
-/* ======================================================= */
-/* 6. MEDIA QUERIES (Bootstrap handles most, but we fine-tune) */
-/* ======================================================= */
-
-@media (max-width: 992px) {
-    /* Navbar Toggle on smaller screens */
-    .navbar-collapse {
-        text-align: center;
-        margin-top: 10px;
-    }
-    .navbar-nav .nav-item {
-        margin: 5px 0;
-    }
+.partners-logo-container img.partner-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
 }
 
-@media (max-width: 768px) {
-    /* Adjust Hero padding for mobile */
-    #hero {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-    #hero h1 {
-        font-size: 2rem;
-    }
-
-    /* Stack CTA buttons on mobile */
-    .hero-buttons a,
-    #cta .btn-cta {
-        display: block;
-        margin: 10px 0 !important;
-        width: 100%;
-    }
-    
-    /* Mailchimp form fix for small screens */
-    #mc_embed_signup {
-        width: 100% !important; 
-    }
+/* Blog Styles */
+.blog-image {
+    height: 250px;
+    object-fit: cover;
 }
 
-/* ======================================================= */
-/* 7. PRESERVED ORIGINAL STYLES (Adjusted for Bootstrap) */
-/* ======================================================= */
+/* Contact Map */
+.map-container iframe {
+    width: 100%;
+    height: 450px;
+    min-height: 300px;
+    border: none;
+}
 
-/* Removed all explicit width/flex/grid properties 
-   from the original CSS that are now handled by Bootstrap classes
-   (e.g., .container, .nav-container, .focus-cards, .mv-cards).
-   Only custom styling not covered by BS is kept. */
+/* --- 6. Footer Styles --- */
 
-/* END OF CSS FILE */
+footer {
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+/* Mailchimp Form in Footer */
+#mc_embed_signup .mc-field-group label {
+    color: rgba(255, 255, 255, 0.7);
+}
+#mc_embed_signup input.email {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #333;
+    color: white;
+}
+#mc_embed_signup .button.btn-warning {
+    color: var(--bs-dark) !important;
+}
+
+/* Style for Partner Section in Footer */
+.partners-section {
+    padding-left: 2rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 991.98px) {
+    .partners-section {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-left: 0;
+        padding-top: 2rem;
+        margin-top: 2rem;
+    }
+}
