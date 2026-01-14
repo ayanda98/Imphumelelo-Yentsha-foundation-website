@@ -6,7 +6,6 @@
     <title>Contact Us - Imphumelelo Yensha Foundation</title>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
     <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
@@ -23,7 +22,12 @@
 
     <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     <style type="text/css">
-        #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%;}
+        /* Fixed: Removed the 'false;' error */
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%;}
+        
+        /* Added a CSS fix to ensure modal inputs are always clickable */
+        .modal { z-index: 2000 !important; }
+        .modal-backdrop { z-index: 1040 !important; }
     </style>
 </head>
 <body>
@@ -53,9 +57,9 @@
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     <li class="nav-item ms-lg-3">
-                        <a href="donate.html" class="btn btn-warning nav-donate-btn custom-donate-btn">
+                        <button type="button" class="btn btn-warning nav-donate-btn custom-donate-btn" data-bs-toggle="modal" data-bs-target="#donationModal">
                             Donate
-                        </a>
+                        </button>
                     </li>
                 </ul>
             </nav>
@@ -63,82 +67,29 @@
     </header>
 
     <main>
-        <section id="hero" class="text-white contact-hero" style="background-image: url('images/contact-hero.jpg'); background-size: cover; background-position: center;">
+        <section id="hero" class="text-white donate-hero" style="background-image: url('images/donate-hero.jpg'); background-size: cover; background-position: center;">
             <div class="container text-center py-5 py-md-6">
-                <h1 class="display-3 fw-bold mb-3">Let's Connect</h1>
-                <p class="lead mb-0 mx-auto" style="max-width: 800px;">We are ready to answer your questions about applications, training, partnerships, and donations.</p>
+                <h1 class="display-3 fw-bold mb-3">Support Our Mission</h1>
+                <p class="lead mb-0 mx-auto" style="max-width: 800px;">Your donation empowers Eswatini entrepreneurs and youth. Every contribution helps us provide training, mentorship, and seed capital for a brighter future.</p>
+                <button type="button" class="btn btn-warning btn-lg mt-4" data-bs-toggle="modal" data-bs-target="#donationModal">Donate Now</button>
             </div>
         </section>
 
-        <section id="contact-details-form" class="py-5 py-md-6 bg-white">
+        <section id="why-donate" class="py-5 bg-white">
             <div class="container">
-                <div class="row g-5">
-                    <div class="col-lg-5">
-                        <h2 class="section-title text-primary mb-4">Get in Touch</h2>
-                        <p class="lead">Reach out to our team using the details below or send us a message directly via the form.</p>
-                        
-                        <div class="contact-info mt-4">
-                            <div class="d-flex align-items-start mb-4">
-                                <i class="fas fa-map-marker-alt fa-2x text-warning me-3 pt-1"></i>
-                                <div>
-                                    <h5 class="fw-bold text-dark">Office Location</h5>
-                                    <p class="text-muted mb-0">Ground Floor, Eswatec Innovation Hub<br>
-                                    Mbabane, Hhohho, Eswatini</p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-start mb-4">
-                                <i class="fas fa-envelope fa-2x text-warning me-3 pt-1"></i>
-                                <div>
-                                    <h5 class="fw-bold text-dark">Email Us</h5>
-                                    <p class="text-muted mb-0"><a href="mailto:info@iyf-eswatini.org" class="text-primary">info@iyf-eswatini.org</a></p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-start mb-4">
-                                <i class="fas fa-phone-alt fa-2x text-warning me-3 pt-1"></i>
-                                <div>
-                                    <h5 class="fw-bold text-dark">Call Us</h5>
-                                    <p class="text-muted mb-0"><a href="tel:+268 7600 0000" class="text-primary">+268 7600 0000</a> (Mon - Fri, 9am - 4pm)</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="social-links mt-5">
-                            <h5 class="fw-bold text-dark mb-3">Follow Us</h5>
-                            <a href="https://facebook.com/iyf-eswatini" target="_blank" class="me-3 text-primary"><i class="fab fa-facebook-f fa-2x hover-lift"></i></a>
-                            <a href="https://twitter.com/iyf-eswatini" target="_blank" class="me-3 text-primary"><i class="fab fa-twitter fa-2x hover-lift"></i></a>
-                            <a href="https://linkedin.com/company/iyf-eswatini" target="_blank" class="me-3 text-primary"><i class="fab fa-linkedin-in fa-2x hover-lift"></i></a>
-                            <a href="https://instagram.com/iyf-eswatini" target="_blank" class="text-primary"><i class="fab fa-instagram fa-2x hover-lift"></i></a>
-                        </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <img src="team_pics/donation.webp" alt="Donation Impact" class="img-fluid rounded shadow">
                     </div>
-
-                    <div class="col-lg-7">
-                        <h2 class="section-title text-secondary mb-4">Send Us a Message</h2>
-                        <form id="contact-form" class="p-4 shadow-lg rounded bg-light">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Full Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="subject" class="form-label">Subject <span class="text-danger">*</span></label>
-                                <select class="form-select" id="subject" required>
-                                    <option selected disabled value="">Select a reason for contact</option>
-                                    <option>General Inquiry</option>
-                                    <option>Business Program Question</option>
-                                    <option>AI & IT Training Inquiry</option>
-                                    <option>Partnership/Media Request</option>
-                                    <option>Donation Query</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="message" rows="5" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-lg w-100 mt-4 hover-lift">Send Message</button>
-                        </form>
+                    <div class="col-lg-6">
+                        <h2 class="section-title text-primary mb-4">Why Donate?</h2>
+                        <ul class="lead">
+                            <li>Fund business training and mentorship for local youth</li>
+                            <li>Provide seed capital for promising entrepreneurs</li>
+                            <li>Support technology and AI education in Eswatini</li>
+                            <li>Help us build a sustainable future for our community</li>
+                        </ul>
+                        <p class="mt-4">We are a registered non-profit. All donations go directly to our programs and beneficiaries.</p>
                     </div>
                 </div>
             </div>
@@ -149,20 +100,20 @@
                 <h2 class="section-title text-primary text-center mb-4">Find Our Office</h2>
                 <div class="map-container rounded shadow-lg">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14170.812328224673!2d31.14449089771192!3d-26.33120600129759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee2e7424072f88b%3A0x89e0e5a88e994998!2sMbabane%2C%20Eswatini!5e0!3m2!1sen!2szw!4v1700000000000!5m2!1sen!2szw" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114134.42551690048!2d31.062828552726584!3d-26.311910620248887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee8d34199650087%3A0x6b77209995e81d85!2sMbabane!5e0!3m2!1sen!2ssz!4v1715000000000!5m2!1sen!2ssz" 
                         width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>
         </section>
 
-        <section id="cta" class="bg-dark text-white">
+        <section id="cta" class="bg-dark text-white py-5">
             <div class="container text-center">
                 <h2 class="display-5 fw-bold mb-3">Support Our Mission</h2>
                 <p class="lead mx-auto" style="max-width: 800px;">Every contribution directly funds training and seed capital for Eswatini entrepreneurs.</p>
                 <div class="mt-4">
-                    <a href="donate.html" class="btn btn-lg btn-light btn-cta me-3 hover-lift">Make a Donation</a>
-                    <a href="about.html" class="btn btn-lg btn-secondary btn-cta hover-lift">Learn More About Us</a>
+                    <button type="button" class="btn btn-lg btn-light me-3" data-bs-toggle="modal" data-bs-target="#donationModal">Make a Donation</button>
+                    <a href="about.html" class="btn btn-lg btn-secondary hover-lift">Learn More About Us</a>
                 </div>
             </div>
         </section>
@@ -176,7 +127,7 @@
                     <p class="text-muted">Subscribe to our newsletter for the latest news and updates.</p>
                     <div id="mc_embed_shell">
                         <div id="mc_embed_signup">
-                            <form action="https://app.us9.list-manage.com/subscribe/post?u=1a7773116f47d21a917431f57&amp;id=2ddff778d9&amp;f_id=00fcc2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                            <form action="https://app.us9.list-manage.com/subscribe/post?u=1a7773116f47d21a917431f57&id=2ddff778d9&f_id=00fcc2e1f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
                                 <div id="mc_embed_signup_scroll">
                                     <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
                                     <div class="mc-field-group mb-3">
@@ -193,7 +144,6 @@
                                     <div class="optionalParent">
                                         <div class="clear foot">
                                             <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-warning" value="Subscribe">
-                                            <p style="margin: 10px auto;"><a href="http://eepurl.com/jkFEGQ" title="Mailchimp - email marketing made easy and fun"><span style="display: inline-block; background-color: transparent; border-radius: 4px;"><img class="refferal_badge" src="https://digitalasset.intuit.com/render/content/dam/intuit/mc-fe/en_us/images/intuit-mc-rewards-text-dark.svg" alt="Intuit Mailchimp" style="width: 220px; height: 40px; display: flex; padding: 2px 0px; justify-content: center; align-items: center;"></span></a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -205,26 +155,89 @@
                 <div class="col-lg-6 partners-section">
                     <h4 class="text-warning">Our Partners</h4>
                     <div class="partners-logo-container mt-3 d-flex justify-content-center align-items-center flex-wrap gap-4">
-                        <a href="URL_OF_PARTNER_WEBSITE_1" target="_blank">
-                            <img src="images/partner1.png" alt="Partner Name 1 Logo" class="partner-logo img-fluid opacity-75 hover-opacity">
-                        </a>
-                        <a href="URL_OF_PARTNER_WEBSITE_2" target="_blank">
-                            <img src="images/partner2.png" alt="Partner Name 2 Logo" class="partner-logo img-fluid opacity-75 hover-opacity">
-                        </a>
-                        <a href="URL_OF_PARTNER_WEBSITE_3" target="_blank">
-                            <img src="Partner_logo/manyika.jpg" alt="Partner Name 3 Logo" class="partner-logo img-fluid opacity-75 hover-opacity">
-                        </a>
+                        <img src="images/partner1.png" alt="Partner 1" class="partner-logo img-fluid opacity-75">
+                        <img src="images/partner2.png" alt="Partner 2" class="partner-logo img-fluid opacity-75">
+                        <img src="Partner_logo/manyika.jpg" alt="Partner 3" class="partner-logo img-fluid opacity-75">
                     </div>
                 </div>
             </div>
-            <p class="text-center text-muted mt-4 pt-3 border-top border-secondary">&copy; 2024 Imphumelelo Yensha Foundation. All Rights Reserved.</p>
+            <p class="text-center text-muted mt-4 pt-3 border-top border-secondary">© 2024 Imphumelelo Yensha Foundation. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <div class="modal fade" id="donationModal" tabindex="-1" aria-labelledby="donationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content text-dark">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="donationModalLabel">Make a Donation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="donation-form">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="donor-name" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="donor-name" name="donor-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="donor-email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="donor-email" name="donor-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="donation-amount" class="form-label">Donation Amount (SZL)</label>
+                            <input type="number" class="form-control" id="donation-amount" name="donation-amount" min="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Payment Method</label>
+                            <select class="form-select" id="payment-method" name="payment-method" required>
+                                <option value="" disabled selected>Select a payment method</option>
+                                <option value="paypal">PayPal</option>
+                                <option value="mobile-money">Mobile Money (Eswatini)</option>
+                                <option value="bank-transfer">Bank Transfer</option>
+                            </select>
+                        </div>
+                        <div id="payment-instructions" class="mt-3 p-3 bg-light rounded" style="display:none;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-warning">Continue</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    
     <script src="js/script.js"></script> 
-    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-    <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='COMPANY';ftypes[6]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var paymentMethod = document.getElementById('payment-method');
+        var paymentInstructions = document.getElementById('payment-instructions');
+        var donationForm = document.getElementById('donation-form');
+
+        if (donationForm) {
+            donationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var method = paymentMethod.value;
+                var donorName = document.getElementById('donor-name').value;
+                let html = '';
+
+                if (method === 'paypal') {
+                    html = '<p>Click the button below to donate via PayPal:</p>' +
+                           '<a href="https://www.paypal.com/donate" target="_blank" class="btn btn-primary">Donate with PayPal</a>';
+                } else if (method === 'mobile-money') {
+                    html = '<p>Send your donation via MTN Mobile Money to:<br><strong>+268 7600 0000</strong><br>Reference: ' + donorName + '</p>';
+                } else if (method === 'bank-transfer') {
+                    html = '<p>Bank Transfer Details:<br><strong>Bank:</strong> Eswatini Bank<br><strong>Account Name:</strong> Imphumelelo Yensha Foundation<br><strong>Account Number:</strong> 123456789<br><strong>Branch:</strong> Mbabane<br>Reference: ' + donorName + '</p>';
+                }
+
+                if (method) {
+                    paymentInstructions.innerHTML = html;
+                    paymentInstructions.style.display = 'block';
+                }
+            });
+        }
+    });
+    </script>
 </body>
 </html>
